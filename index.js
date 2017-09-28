@@ -1,17 +1,18 @@
 import React from 'react';
-import {Render} from 'react-dom';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import PlayerReducer from './src/reducers/player'
-import Scoreboard from './src/containers/Scoreboard.js';
+import PlayerReducer from './src/reducers/player';
+import Scoreboard from './src/containers/Scoreboard';
 
 const store = createStore(
-    PlayerReducer
+  PlayerReducer,
+  window.devToolsExtension && window.devToolsExtension()
 );
 
 render(
-    <Provider store={store}>
-        <Scoreboard />
-    </Provider>,    
-    document.getElementById('root')
+  <Provider store={store}>
+    <Scoreboard />
+  </Provider>,
+  document.getElementById('root')
 );
